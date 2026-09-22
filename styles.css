@@ -926,7 +926,40 @@ img.seal {
 .contact-form .btn {
   width: 100%;
 }
+/* =========================
+   FORM SUCCESS / ERROR
+========================= */
 
+.form-success {
+  margin-top: 18px;
+  padding: 14px 16px;
+
+  background: rgba(183, 138, 66, 0.12);
+  border-left: 3px solid var(--gold);
+
+  color: var(--ink);
+
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.form-error {
+  margin-top: 18px;
+  padding: 14px 16px;
+
+  background: #f8e9e9;
+  border-left: 3px solid #a33;
+
+  color: #7b2222;
+
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.contact-form button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
 /* =========================
    FORM NOTE
 ========================= */
