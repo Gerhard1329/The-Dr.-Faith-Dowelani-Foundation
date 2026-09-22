@@ -191,14 +191,82 @@
             <p><small>REGISTRATION</small>NPC 2026/711628/08</p>
           </div>
         </div>
-        <form class="contact-form" id="contactForm">
-          <label>Name<input type="text" name="Name" placeholder="Your name" required></label>
-          <label>Email<input type="email" name="Email" placeholder="you@example.com" required></label>
-          <label>How would you like to help?<select name="Interest"><option>Corporate sponsorship</option><option>Mentorship</option><option>Institutional partnership</option><option>Education support</option><option>General enquiry</option></select></label>
-          <label>Message<textarea name="Message" rows="5" placeholder="Tell us a little about your interest..."></textarea></label>
-          <button class="btn btn-primary" type="submit">Send enquiry →</button>
-          <p class="form-note" id="formNote" hidden>Your email app should now be open with this enquiry pre-filled — send it from there to reach us.</p>
-        </form>
+        <form
+  class="contact-form"
+  action="https://formspree.io/f/YOUR_FORM_ID"
+  method="POST"
+>
+
+  <h3>Send an Inquiry</h3>
+
+  <label>
+    Full Name
+    <input
+      type="text"
+      name="name"
+      placeholder="Your full name"
+      required
+    >
+  </label>
+
+  <label>
+    Email Address
+    <input
+      type="email"
+      name="email"
+      placeholder="your@email.com"
+      required
+    >
+  </label>
+
+  <label>
+    Phone Number
+    <input
+      type="tel"
+      name="phone"
+      placeholder="Your phone number"
+    >
+  </label>
+
+  <label>
+    Inquiry Type
+    <select name="inquiry_type" required>
+      <option value="">Select an option</option>
+      <option value="General Inquiry">General Inquiry</option>
+      <option value="Bursary Programme">Bursary Programme</option>
+      <option value="Mentorship">Mentorship</option>
+      <option value="Partnership">Partnership</option>
+      <option value="Sponsorship">Sponsorship</option>
+      <option value="Volunteer">Volunteer</option>
+      <option value="Other">Other</option>
+    </select>
+  </label>
+
+  <label>
+    Message
+    <textarea
+      name="message"
+      rows="6"
+      placeholder="How can we assist you?"
+      required
+    ></textarea>
+  </label>
+
+  <input
+    type="hidden"
+    name="_subject"
+    value="New Inquiry — Dr. Faith Dowelani Foundation"
+  >
+
+  <button type="submit" class="btn btn-primary">
+    Send Inquiry
+  </button>
+
+  <p class="form-note">
+    Your inquiry will be sent securely to Fdowelani@gmail.com.
+  </p>
+
+</form>
       </div>
     </section>
   </main>
