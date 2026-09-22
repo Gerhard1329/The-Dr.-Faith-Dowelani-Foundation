@@ -5,6 +5,7 @@ document.querySelectorAll('.nav a').forEach(a => a.addEventListener('click', () 
 
 // Contact form: build a pre-filled mailto so the enquiry reaches a real inbox
 // without needing a backend.
+
 const contactForm = document.getElementById('contactForm');
 const formNote = document.getElementById('formNote');
 contactForm?.addEventListener('submit', (e) => {
@@ -45,3 +46,56 @@ revealItems.forEach((el) => {
   el.style.transition = 'opacity .6s ease, transform .6s ease';
   observer.observe(el);
 });
+const contactForm = document.querySelector(".contact-form");
+
+if (contactForm) {
+  contactForm.addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    const button = contactForm.querySelector("button[type='submit']");
+    const originalText = button.textContent;
+
+    button.textContent = "Sending...";
+    button.disabled = true;
+
+    try {
+      const response = await fetch(contactForm.action, {
+        method: "POST",
+        body: new FormData(contactForm),
+        headers: {
+          Accept: "application/json"
+        }
+      });
+
+      if (response.ok) {
+        contactForm.reset();
+
+        button.textContent = "Inquiry Sent ✓";
+
+        const message = document.createElement("p");
+        message.className = "form-success";
+        message.textContent =
+          "Thank you for contacting The Dr. Faith Dowelani Foundation. Your inquiry has been received.";
+
+        contactForm.appendChild(message);
+
+        setTimeout(() => {
+          button.textContent = originalText;
+          button.disabled = false;
+        }, 4000);
+      } else {
+        throw new Error("Form submission failed");
+      }
+    } catch (error) {
+      button.textContent = "Try Again";
+      button.disabled = false;
+
+      const errorMessage = document.createElement("p");
+      errorMessage.className = "form-error";
+      errorMessage.textContent =
+        "Something went wrong. Please try again or contact us directly.";
+
+      contactForm.appendChild(errorMessage);
+    }
+  });
+}
