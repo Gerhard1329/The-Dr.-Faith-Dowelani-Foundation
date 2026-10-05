@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gerhard1329.github.io/The-Dr.-Faith-Dowelani-Foundation/sitemap.xml
